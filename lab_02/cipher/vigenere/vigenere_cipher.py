@@ -3,8 +3,8 @@ class VigenereCipher:
         pass
 
     def vigenere_encrypt(self, plain_text, key):
-        if not key.isalpha():
-                raise ValueError("Khoa chi duoc chua cac ky tu chu cai.") 
+        if not key.isascii() or not key.isalpha():
+            raise ValueError("Khóa chỉ được chứa chữ cái A-Z") 
         encrypted_text = ""
         key_index = 0
         for char in plain_text:
@@ -20,7 +20,8 @@ class VigenereCipher:
         return encrypted_text
 
     def vigenere_decrypt(self, encrypted_text, key):
-        
+        if not key.isascii() or not key.isalpha():
+            raise ValueError("Khóa chỉ được chứa chữ cái A-Z")
         decrypted_text = ""
         key_index = 0
         for char in encrypted_text:

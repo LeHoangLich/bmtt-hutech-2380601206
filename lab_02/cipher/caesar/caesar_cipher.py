@@ -6,6 +6,14 @@ class CaesarCipher:
         self.alphabet = ALPHABET
 
     def encrypt_text(self, text: str, key: int) -> str:
+        if text is None or text.strip() == "":
+            raise ValueError("Văn bản không được để trống")
+
+        if not isinstance(key, int):
+            raise ValueError("Khóa phải là số nguyên")
+
+        if not text.replace(" ", "").isalpha():
+            raise ValueError("Văn bản chỉ được chứa chữ cái")
         alphabet_len = len(self.alphabet)
         text = text.upper()
         encrypted_text = []
@@ -17,6 +25,14 @@ class CaesarCipher:
         return "".join(encrypted_text)
 
     def decrypt_text(self, text: str, key: int) -> str:
+        if text is None or text.strip() == "":
+            raise ValueError("Văn bản không được để trống")
+
+        if not isinstance(key, int):
+            raise ValueError("Khóa phải là số nguyên")
+
+        if not text.replace(" ", "").isalpha():
+            raise ValueError("Văn bản chỉ được chứa chữ cái")
         alphabet_len = len(self.alphabet)
         text = text.upper()
         decrypted_text = []
