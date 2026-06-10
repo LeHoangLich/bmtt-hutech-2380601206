@@ -5,40 +5,53 @@ class CaesarCipher:
     def __init__(self):
         self.alphabet = ALPHABET
 
+    def validate_key(self, key: int) -> int:
+        if not isinstance(key, int):
+            raise ValueError("Khóa Caesar phải là số nguyên từ 1 đến 25")
+
+        if key < 1 or key > 25:
+            raise ValueError("Khóa Caesar phải là số nguyên từ 1 đến 25")
+
+        return key
+
     def encrypt_text(self, text: str, key: int) -> str:
         if text is None or text.strip() == "":
             raise ValueError("Văn bản không được để trống")
 
-        if not isinstance(key, int):
-            raise ValueError("Khóa phải là số nguyên")
+        key = self.validate_key(key)
 
-        if not text.replace(" ", "").isalpha():
-            raise ValueError("Văn bản chỉ được chứa chữ cái")
         alphabet_len = len(self.alphabet)
         text = text.upper()
         encrypted_text = []
+
         for letter in text:
-            letter_index = self.alphabet.index(letter)
-            output_index = (letter_index + key) % alphabet_len
-            output_letter = self.alphabet[output_index]
-            encrypted_text.append(output_letter)
+            if letter in self.alphabet:
+                letter_index = self.alphabet.index(letter)
+                output_index = (letter_index + key) % alphabet_len
+                output_letter = self.alphabet[output_index]
+                encrypted_text.append(output_letter)
+            else:
+                encrypted_text.append(letter)
+
         return "".join(encrypted_text)
 
     def decrypt_text(self, text: str, key: int) -> str:
         if text is None or text.strip() == "":
             raise ValueError("Văn bản không được để trống")
 
-        if not isinstance(key, int):
-            raise ValueError("Khóa phải là số nguyên")
+        key = self.validate_key(key)
 
-        if not text.replace(" ", "").isalpha():
-            raise ValueError("Văn bản chỉ được chứa chữ cái")
         alphabet_len = len(self.alphabet)
         text = text.upper()
         decrypted_text = []
+
         for letter in text:
-            letter_index = self.alphabet.index(letter)
-            output_index = (letter_index - key) % alphabet_len
-            output_letter = self.alphabet[output_index]
-            decrypted_text.append(output_letter)
+            if letter in self.alphabet:
+                letter_index = self.alphabet.index(letter)
+                output_index = (letter_index - key) % alphabet_len
+                output_letter = self.alphabet[output_index]
+                decrypted_text.append(output_letter)
+            else:
+                decrypted_text.append(letter)
+
         return "".join(decrypted_text)

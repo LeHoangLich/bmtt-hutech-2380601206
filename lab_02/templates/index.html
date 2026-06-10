@@ -6,107 +6,182 @@
     <title>Lab Mã hóa cổ điển | Lê Hoàng Lịch</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0d6efd;
+            --primary-dark: #084db3;
+            --accent: #e7f1ff;
+            --text: #172033;
+            --muted: #667085;
+            --border: #dbe7f7;
+        }
+
+        * { box-sizing: border-box; }
+
         body {
             min-height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #eef6ff, #f8fbff);
+            background:
+                radial-gradient(circle at top left, rgba(13, 110, 253, 0.13), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(31, 142, 241, 0.10), transparent 28%),
+                linear-gradient(135deg, #ffffff 0%, #f4f9ff 100%);
             font-family: Arial, Helvetica, sans-serif;
-            color: #1f2937;
+            color: var(--text);
         }
 
         .main-wrapper {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
+            max-width: 1050px;
+            margin: 36px auto;
+            padding: 0 18px 30px;
         }
 
         .header-card {
             background: #ffffff;
-            border-radius: 18px;
-            padding: 30px 25px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px 28px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 18px 45px rgba(13, 110, 253, 0.10);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-card::before {
+            content: "0101  AES  SHIFT  KEY  MATRIX  1010";
+            position: absolute;
+            top: 14px;
+            left: 0;
+            width: 100%;
+            color: rgba(13, 110, 253, 0.08);
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            white-space: nowrap;
         }
 
         .logo {
-            width: 180px;
+            width: 165px;
             max-width: 70%;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--primary-dark);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            margin-bottom: 14px;
         }
 
         .title {
-            font-weight: 700;
-            color: #0f4c81;
+            position: relative;
+            z-index: 1;
+            font-weight: 800;
+            color: var(--primary-dark);
             margin-bottom: 10px;
         }
 
         .subtitle {
-            color: #6b7280;
+            position: relative;
+            z-index: 1;
+            color: var(--muted);
             margin-bottom: 0;
         }
 
-        .student-info {
+        .student-row {
+            position: relative;
+            z-index: 1;
             margin-top: 18px;
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 999px;
-            background: #e8f1ff;
-            color: #0f4c81;
-            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .cipher-grid {
-            margin-top: 28px;
+        .student-info {
+            display: inline-block;
+            padding: 9px 16px;
+            border-radius: 999px;
+            background: #e8f1ff;
+            color: var(--primary-dark);
+            font-weight: 700;
+            border: 1px solid #cfe2ff;
         }
+
+        .cipher-grid { margin-top: 28px; }
 
         .cipher-card {
             height: 100%;
             background: #ffffff;
-            border-radius: 15px;
-            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px 20px;
             text-align: center;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 26px rgba(15, 76, 129, 0.329);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .cipher-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 34px rgba(13, 110, 253, 0.14);
+        }
+
+        .cipher-icon {
+            width: 46px;
+            height: 46px;
+            margin: 0 auto 14px;
+            border-radius: 15px;
+            background: var(--accent);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
         }
 
         .cipher-card h5 {
-            font-weight: 700;
-            color: #111827;
+            font-weight: 800;
+            color: var(--text);
             margin-bottom: 10px;
         }
 
         .cipher-card p {
-            color: #6b7280;
+            color: var(--muted);
             font-size: 14px;
-            min-height: 42px;
+            min-height: 44px;
         }
 
         .cipher-card a {
             display: inline-block;
             margin-top: 8px;
-            padding: 9px 18px;
-            border-radius: 8px;
-            background: #0f4c81;
+            padding: 10px 18px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0d6efd, #0a58ca);
             color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            box-shadow: 0 8px 18px rgba(13, 110, 253, 0.22);
         }
 
         .cipher-card a:hover {
-            background: #0b3a63;
+            background: linear-gradient(135deg, #0b5ed7, #084db3);
             color: #ffffff;
             text-decoration: none;
+            transform: translateY(-1px);
         }
 
         .footer-note {
             margin-top: 24px;
             text-align: center;
-            color: #6b7280;
+            color: var(--muted);
             font-size: 14px;
         }
     </style>
@@ -116,46 +191,45 @@
         <div class="header-card">
             <img class="logo" src="https://file1.hutech.edu.vn/file/editor/homepage/stories/hinh34/logo%20CMYK-01.png" alt="Logo HUTECH">
             <h3 class="title">Bài thực hành Bảo mật thông tin nâng cao</h3>
-            <p class="subtitle">Website mô phỏng các thuật toán mã hóa cổ điển</p>
-            <div class="student-info">Sinh viên: Lê Hoàng Lịch</div>
-            <div class="student-info">MSSV: 2380601206</div>
+            <div class="student-row">
+                <div class="student-info">Sinh viên: Lê Hoàng Lịch</div>
+                <div class="student-info">MSSV: 2380601206</div>
+            </div>
         </div>
 
         <div class="row cipher-grid">
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="cipher-card">
+                    <div class="cipher-icon">C</div>
                     <h5>Caesar</h5>
-                    <p>Mã hóa bằng cách dịch chuyển ký tự theo khóa số.</p>
                     <a href="/caesar">Mở chức năng</a>
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="cipher-card">
+                    <div class="cipher-icon">R</div>
                     <h5>Rail Fence</h5>
-                    <p>Mã hóa bằng cách sắp xếp ký tự theo dạng hàng rào.</p>
                     <a href="/railfence">Mở chức năng</a>
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="cipher-card">
+                    <div class="cipher-icon">P</div>
                     <h5>Playfair</h5>
-                    <p>Mã hóa từng cặp chữ cái dựa trên ma trận 5x5.</p>
                     <a href="/playfair">Mở chức năng</a>
                 </div>
             </div>
 
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="cipher-card">
+                    <div class="cipher-icon">V</div>
                     <h5>Vigenere</h5>
-                    <p>Mã hóa văn bản bằng khóa chữ lặp lại theo chuỗi.</p>
                     <a href="/vigenere">Mở chức năng</a>
                 </div>
             </div>
         </div>
-
-        <p class="footer-note">Thiết kế đơn giản, dễ nhìn, phù hợp dùng để demo bài lab.</p>
     </div>
 </body>
 </html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lỗi dữ liệu</title>
+    
+<style>
+    :root {
+        --primary: #0d6efd;
+        --primary-dark: #084db3;
+        --accent: #e7f1ff;
+        --text: #172033;
+        --border: #dbe7f7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ffffff 0%, #f4f9ff 100%);
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+    }
+
+    .result-card {
+        width: min(760px, 100%);
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: 0 18px 45px rgba(13, 110, 253, 0.10);
+    }
+
+    h1 {
+        margin: 0 0 18px;
+        color: var(--primary-dark);
+        font-size: 28px;
+        font-weight: 800;
+    }
+
+    .info {
+        background: #f0f7ff;
+        border: 1px solid #cbdff8;
+        border-radius: 14px;
+        padding: 14px 16px;
+        margin-bottom: 18px;
+        line-height: 1.7;
+    }
+
+    .output {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--primary);
+        word-break: break-word;
+    }
+
+    .matrix-title {
+        margin-top: 22px;
+        color: var(--primary-dark);
+        font-weight: 800;
+    }
+
+    .matrix-table {
+        border-collapse: separate;
+        border-spacing: 8px;
+        margin-top: 10px;
+    }
+
+    .matrix-table td {
+        width: 46px;
+        height: 46px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 12px;
+        background: var(--accent);
+        color: var(--primary-dark);
+        font-weight: 800;
+        border: 1px solid #cbdff8;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 22px;
+        padding: 10px 18px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #0d6efd, #0a58ca);
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .btn-back:hover {
+        color: white;
+        text-decoration: none;
+        background: linear-gradient(135deg, #0b5ed7, #084db3);
+    }
+
+    .error-card {
+        border-color: #ffd6d6;
+        box-shadow: 0 18px 45px rgba(220, 53, 69, 0.10);
+    }
+
+    .error-title { color: #b42318; }
+</style>
+
+</head>
+<body>
+    <div class="result-card error-card">
+        <h1 class="error-title">Dữ liệu chưa hợp lệ</h1>
+        <div class="info">
+            {{ message }}
+        </div>
+        {% if note %}
+        <p>{{ note }}</p>
+        {% endif %}
+        <a class="btn-back" href="{{ back_url }}">← Nhập lại</a>
+    </div>
+</body>
+</html>
