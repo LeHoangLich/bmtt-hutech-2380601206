@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>611</width>
     <height>488</height>
    </rect>
   </property>
@@ -22,14 +22,14 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>230</x>
       <y>20</y>
-      <width>201</width>
+      <width>271</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>CAESAR CIPHER</string>
+     <string>RAIL FENCE CIPHER</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -55,7 +55,7 @@
      <rect>
       <x>30</x>
       <y>170</y>
-      <width>31</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -91,7 +91,7 @@
      <rect>
       <x>160</x>
       <y>70</y>
-      <width>581</width>
+      <width>421</width>
       <height>64</height>
      </rect>
     </property>
@@ -101,8 +101,8 @@
      <rect>
       <x>160</x>
       <y>180</y>
-      <width>581</width>
-      <height>51</height>
+      <width>421</width>
+      <height>64</height>
      </rect>
     </property>
    </widget>
@@ -111,7 +111,7 @@
      <rect>
       <x>160</x>
       <y>290</y>
-      <width>581</width>
+      <width>421</width>
       <height>64</height>
      </rect>
     </property>
@@ -120,7 +120,7 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>380</y>
+      <y>390</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -132,8 +132,8 @@
    <widget class="QPushButton" name="pushDecrypt">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>380</y>
+      <x>470</x>
+      <y>390</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -166,7 +166,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>611</width>
      <height>21</height>
     </rect>
    </property>

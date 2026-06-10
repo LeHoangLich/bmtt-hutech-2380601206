@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from ui.caesar import Ui_MainWindow
+from ui.vigenere import Ui_MainWindow
 import requests
 
 class MyApp(QMainWindow):
@@ -13,20 +13,19 @@ class MyApp(QMainWindow):
 
     def validate_key(self):
         key = self.ui.textKey.toPlainText()
-        if not key.isdigit():
-            QMessageBox.warning(self,"Khóa phải là số nguyên từ 1 đến 25")
-            return False
-        key = int(key)
-
-        if key <1 or key > 25:
-            QMessageBox.warning(self,"Khóa phải là số nguyên từ 1 đến 25")
+        if not key.isalpha():
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("Invalid Key")
+            msg.setText("Khóa chỉ được chứa chữ cái A-Z")
+            msg.exec_()
             return False
         return True
-
+    
     def call_api_encrypt(self):
         if not self.validate_key():
             return
-        url = "http://127.0.0.1:5000/api/caesar/encrypt"
+        url = "http://127.0.0.1:5000/api/vigenere/encrypt"
         payload = {
             "plain_text": self.ui.textPlainText.toPlainText(),
             "key": self.ui.textKey.toPlainText()
@@ -35,8 +34,8 @@ class MyApp(QMainWindow):
             response = requests.post(url, json=payload)
             if response.status_code == 200:
                 data = response.json()
-                self.ui.textCipherText.setText(data["encrypted_message"])
-                
+                self.ui.textCipherText.setText(data["encrypted_text"])
+
                 msg = QMessageBox()
                 msg.setIcon(QMessageBox.Information)
                 msg.setText("Mã hóa thành công!")
@@ -47,7 +46,7 @@ class MyApp(QMainWindow):
             print("Error: %s" % e.message)
 
     def call_api_decrypt(self):
-        url = "http://127.0.0.1:5000/api/caesar/decrypt"
+        url = "http://127.0.0.1:5000/api/vigenere/decrypt"
         payload = {
             "cipher_text": self.ui.textCipherText.toPlainText(),
             "key": self.ui.textKey.toPlainText()
@@ -56,8 +55,8 @@ class MyApp(QMainWindow):
             response = requests.post(url, json=payload)
             if response.status_code == 200:
                 data = response.json()
-                self.ui.textPlainText.setText(data["decrypted_message"])
-                
+                self.ui.textPlainText.setText(data["decrypted_text"])
+
                 msg = QMessageBox()
                 msg.setIcon(QMessageBox.Information)
                 msg.setText("Giải mã thành công!")

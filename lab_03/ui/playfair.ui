@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>488</height>
+    <height>631</height>
    </rect>
   </property>
   <property name="font">
@@ -24,12 +24,12 @@
      <rect>
       <x>320</x>
       <y>20</y>
-      <width>201</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>CAESAR CIPHER</string>
+     <string>PLAYFAIR CIPHER</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -54,8 +54,8 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>170</y>
-      <width>31</width>
+      <y>190</y>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -86,12 +86,30 @@
      <string>Cipher Text:</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>490</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Matrix:</string>
+    </property>
+   </widget>
    <widget class="QTextEdit" name="textPlainText">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>150</x>
       <y>70</y>
-      <width>581</width>
+      <width>611</width>
       <height>64</height>
      </rect>
     </property>
@@ -99,28 +117,41 @@
    <widget class="QTextEdit" name="textKey">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>180</y>
-      <width>581</width>
-      <height>51</height>
+      <x>150</x>
+      <y>190</y>
+      <width>611</width>
+      <height>41</height>
      </rect>
     </property>
    </widget>
    <widget class="QTextEdit" name="textCipherText">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>150</x>
       <y>290</y>
-      <width>581</width>
+      <width>611</width>
       <height>64</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textMatrix">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>490</y>
+      <width>601</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushEncrypt">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>380</y>
+      <x>150</x>
+      <y>400</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -132,8 +163,8 @@
    <widget class="QPushButton" name="pushDecrypt">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>380</y>
+      <x>360</x>
+      <y>400</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -142,7 +173,20 @@
      <string>Decrypt</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QPushButton" name="pushCreateMatrix">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>400</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Create Matrix</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>10</x>

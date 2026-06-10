@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\ui\caesar.ui'
+# Form implementation generated from reading ui file '.\ui\railfence.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -14,14 +14,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 488)
+        MainWindow.resize(611, 488)
         font = QtGui.QFont()
         font.setPointSize(20)
         MainWindow.setFont(font)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(270, 20, 201, 21))
+        self.label.setGeometry(QtCore.QRect(230, 20, 271, 21))
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(30, 70, 81, 16))
@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(30, 170, 31, 21))
+        self.label_3.setGeometry(QtCore.QRect(30, 170, 81, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_3.setFont(font)
@@ -42,23 +42,29 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.textPlainText = QtWidgets.QTextEdit(self.centralwidget)
-        self.textPlainText.setGeometry(QtCore.QRect(160, 70, 581, 64))
+        self.textPlainText.setGeometry(QtCore.QRect(160, 70, 421, 64))
         self.textPlainText.setObjectName("textPlainText")
         self.textKey = QtWidgets.QTextEdit(self.centralwidget)
-        self.textKey.setGeometry(QtCore.QRect(160, 180, 581, 51))
+        self.textKey.setGeometry(QtCore.QRect(160, 180, 421, 64))
         self.textKey.setObjectName("textKey")
         self.textCipherText = QtWidgets.QTextEdit(self.centralwidget)
-        self.textCipherText.setGeometry(QtCore.QRect(160, 290, 581, 64))
+        self.textCipherText.setGeometry(QtCore.QRect(160, 290, 421, 64))
         self.textCipherText.setObjectName("textCipherText")
         self.pushEncrypt = QtWidgets.QPushButton(self.centralwidget)
-        self.pushEncrypt.setGeometry(QtCore.QRect(160, 380, 111, 41))
+        self.pushEncrypt.setGeometry(QtCore.QRect(160, 390, 111, 41))
         self.pushEncrypt.setObjectName("pushEncrypt")
         self.pushDecrypt = QtWidgets.QPushButton(self.centralwidget)
-        self.pushDecrypt.setGeometry(QtCore.QRect(630, 380, 111, 41))
+        self.pushDecrypt.setGeometry(QtCore.QRect(470, 390, 111, 41))
         self.pushDecrypt.setObjectName("pushDecrypt")
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(10, 0, 161, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 611, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -71,12 +77,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "CAESAR CIPHER"))
+        self.label.setText(_translate("MainWindow", "RAIL FENCE CIPHER"))
         self.label_2.setText(_translate("MainWindow", "Plain Text:"))
         self.label_3.setText(_translate("MainWindow", "Key:"))
         self.label_4.setText(_translate("MainWindow", "Cipher Text:"))
         self.pushEncrypt.setText(_translate("MainWindow", "Encrypt"))
         self.pushDecrypt.setText(_translate("MainWindow", "Decrypt"))
+        self.label_5.setText(_translate("MainWindow", "Lê Hoàng Lịch - 2380601206"))
 
 
 if __name__ == "__main__":
